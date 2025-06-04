@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgManagement.API", "OrgManagement.API\OrgManagement.API.csproj", "{AFFE4543-40A5-4823-99DA-FFCDCAD33C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgManagement.DataServices", "OrgManagement.DataServices\OrgManagement.DataServices.csproj", "{45F04F24-1DA6-477F-9103-57E8FEE06BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgManagement.Entities", "OrgManagement.Entities\OrgManagement.Entities.csproj", "{C99AD364-14B4-4677-A17C-7E2AF2B049CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFFE4543-40A5-4823-99DA-FFCDCAD33C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFE4543-40A5-4823-99DA-FFCDCAD33C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFE4543-40A5-4823-99DA-FFCDCAD33C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFE4543-40A5-4823-99DA-FFCDCAD33C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45F04F24-1DA6-477F-9103-57E8FEE06BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F04F24-1DA6-477F-9103-57E8FEE06BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F04F24-1DA6-477F-9103-57E8FEE06BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F04F24-1DA6-477F-9103-57E8FEE06BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C99AD364-14B4-4677-A17C-7E2AF2B049CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99AD364-14B4-4677-A17C-7E2AF2B049CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99AD364-14B4-4677-A17C-7E2AF2B049CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99AD364-14B4-4677-A17C-7E2AF2B049CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

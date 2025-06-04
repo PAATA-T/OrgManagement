@@ -1,0 +1,17 @@
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.DataServices.deps.json
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.DataServices.runtimeconfig.json
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.DataServices.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.DataServices.pdb
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.csproj.AssemblyReference.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.AssemblyInfoInputs.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.AssemblyInfo.cs
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.csproj.CoreCompileInputs.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\refint\OrgManagement.DataServices.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.pdb
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManagement.DataServices.genruntimeconfig.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\ref\OrgManagement.DataServices.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.Entities.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\bin\Debug\net8.0\OrgManagement.Entities.pdb
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.DataServices\obj\Debug\net8.0\OrgManag.5FF04ED0.Up2Date

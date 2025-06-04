@@ -1,0 +1,12 @@
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\bin\Debug\net8.0\OrgManagement.Entities.deps.json
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\bin\Debug\net8.0\OrgManagement.Entities.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\bin\Debug\net8.0\OrgManagement.Entities.pdb
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.AssemblyInfoInputs.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.AssemblyInfo.cs
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.csproj.CoreCompileInputs.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\refint\OrgManagement.Entities.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.pdb
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\ref\OrgManagement.Entities.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.csproj.AssemblyReference.cache
