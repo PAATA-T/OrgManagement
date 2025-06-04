@@ -9,8 +9,6 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 var logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("Logs/OrgManagement_Log.txt", rollingInterval: RollingInterval.Day)
@@ -18,7 +16,6 @@ var logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
@@ -33,7 +30,6 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

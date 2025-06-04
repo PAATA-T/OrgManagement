@@ -12,7 +12,6 @@ public class PersonDto
     public DateTime BirthDate { get; set; }
     public string PhotoUrl { get; set; }
     public ForeignLanguage ForeignLanguage { get; set; }
-
-    // Simplified nested Organization info
+    
     public OrganizationDto Organization { get; set; }
 }

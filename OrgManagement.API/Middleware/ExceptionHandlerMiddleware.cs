@@ -22,11 +22,9 @@ public class ExceptionHandlerMiddleware
         catch (Exception ex)
         {
             var errorId = Guid.NewGuid();
-
-            //log this exception
+            
             _logger.LogError(ex, $"{errorId} : {ex.Message}");
-
-            //Returning custom error message
+            
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             httpContext.Response.ContentType = "application/json";
 
