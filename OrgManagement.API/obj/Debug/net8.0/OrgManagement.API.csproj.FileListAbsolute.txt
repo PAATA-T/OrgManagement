@@ -168,3 +168,4 @@ C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.API\bin\Debug\net8.0\Sy
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.API\bin\Debug\net8.0\MediatR.dll
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.API\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.API\obj\Debug\net8.0\OrgManagement.API.sourcelink.json

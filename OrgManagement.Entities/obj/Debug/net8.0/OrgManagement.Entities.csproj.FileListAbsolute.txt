@@ -10,3 +10,4 @@ C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.pdb
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\ref\OrgManagement.Entities.dll
 C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.csproj.AssemblyReference.cache
+C:\Users\tutia\RiderProjects\OrgManagement\OrgManagement.Entities\obj\Debug\net8.0\OrgManagement.Entities.sourcelink.json

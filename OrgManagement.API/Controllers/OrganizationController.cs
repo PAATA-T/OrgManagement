@@ -1,8 +1,7 @@
-using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OrgManagement.API.Commands;
 using OrgManagement.API.Queries;
-using OrgManagement.DataServices.Repositories;
 using OrgManagement.Entities.Models;
 namespace OrgManagement.API.Controllers;
 
@@ -10,18 +9,13 @@ namespace OrgManagement.API.Controllers;
 [Route("api/[controller]")]
 public class OrganizationController : ControllerBase
 {
-    private readonly IOrganizationRepository _organizationRepository;
-    private readonly IMapper _mapper;
     private readonly ILogger<OrganizationController> _logger;
     private readonly IMediator _mediator;
 
-    public OrganizationController(IOrganizationRepository organizationRepository, 
-        IMapper mapper, 
+    public OrganizationController( 
         ILogger<OrganizationController> logger, 
         IMediator mediator)
     {
-        _organizationRepository = organizationRepository;
-        _mapper = mapper;
         _logger = logger;
         _mediator = mediator;
     }
@@ -29,21 +23,13 @@ public class OrganizationController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] OrganizationCreateDto dto)
     {
-        if (!ModelState.IsValid) 
+        if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var org = new Organization
-        {
-            Id = Guid.NewGuid(),
-            Name = dto.Name,
-            Address = dto.Address,
-            ParentOrganizationId = dto.ParentOrganizationId
-        };
+        var command = new CreateOrganizationCommand(dto);
+        var orgDto = await _mediator.Send(command);
 
-        await _organizationRepository.AddAsync(org);
-        _logger.LogInformation("Organization created", org.Id);
-        
-        return CreatedAtAction(nameof(GetById), new { id = org.Id }, org);
+        return CreatedAtAction(nameof(GetById), new { id = orgDto.Id }, orgDto);
     }
 
     [HttpGet("tree")]
@@ -77,5 +63,4 @@ public class OrganizationController : ControllerBase
         
         return Ok(result);
     }
-    
 }

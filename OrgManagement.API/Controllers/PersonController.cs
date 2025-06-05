@@ -1,37 +1,25 @@
-using AutoMapper;
-using MediatR;
-using OrgManagement.API.Commands;
-using OrgManagement.API.Queries;
-using OrgManagement.DataServices.Repositories;
-using OrgManagement.Entities.Models;
-
 namespace OrgManagement.API.Controllers;
-
+using MediatR;
+using Commands;
+using Queries;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
 using System.IO;
-using System.Collections.Generic;
 
 [ApiController]
 [Route("api/[controller]")]
 public class PersonsController : ControllerBase
 {
-    private readonly IPersonRepository _personRepository;
-    private readonly IWebHostEnvironment _environment;
-    private readonly IMapper _mapper;
     private readonly IMediator _mediator;
+    private readonly ILogger<PersonsController> _logger;
 
-    public PersonsController(IPersonRepository personRepository, 
-        IWebHostEnvironment environment, 
-        IMapper mapper,
-        IMediator mediator)
+    public PersonsController(IMediator mediator, ILogger<PersonsController> logger)
     {
-        _personRepository = personRepository;
-        _environment = environment;
-        _mapper = mapper;
         _mediator = mediator;
+        _logger = logger;
     }
     
     [HttpPost]
@@ -39,12 +27,11 @@ public class PersonsController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        
-        var person = _mapper.Map<Person>(dto);
 
-        await _personRepository.AddAsync(person);
+        var command = new CreatePersonCommand(dto);
+        var resultDto = await _mediator.Send(command);
 
-        return CreatedAtAction(nameof(GetPersonById), new { id = person.Id }, person);
+        return CreatedAtAction(nameof(GetPersonById), new { id = resultDto.Id }, resultDto);
     }
     
     [HttpDelete("{id:guid}")]
@@ -61,20 +48,12 @@ public class PersonsController : ControllerBase
     public async Task<IActionResult> UpdatePerson(Guid id, [FromBody] PersonCreateDto dto)
     {
         if (!ModelState.IsValid)
+            //_logger.LogInformation("Model state is invalid");
             return BadRequest(ModelState);
 
-        var existingPerson = await _personRepository.GetByIdAsync(id);
-        if (existingPerson == null)
+        var success = await _mediator.Send(new UpdatePersonCommand(id, dto));
+        if (!success)
             return NotFound();
-
-        existingPerson.FirstName = dto.FirstName;
-        existingPerson.LastName = dto.LastName;
-        existingPerson.PersonalNumber = dto.PersonalNumber;
-        existingPerson.BirthDate = dto.BirthDate;
-        existingPerson.ForeignLanguage = dto.ForeignLanguage;
-        existingPerson.OrganizationId = dto.OrganizationId;
-
-        await _personRepository.UpdateAsync(existingPerson);
 
         return NoContent();
     }
@@ -82,14 +61,11 @@ public class PersonsController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetPersonById(Guid id)
     {
-        var person = await _personRepository.GetByIdAsync(id);
-
-        if (person == null)
-        {
+        var dto = await _mediator.Send(new GetPersonByIdQuery(id));
+        if (dto == null)
             return NotFound();
-        }
 
-        return Ok(person); 
+        return Ok(dto);
     }
     
     [HttpGet]
@@ -114,26 +90,16 @@ public class PersonsController : ControllerBase
         if (photo == null || photo.Length == 0)
             return BadRequest("Photo file is missing.");
 
-        var person = await _personRepository.GetByIdAsync(id);
-        if (person == null)
-            return NotFound();
-
-        var uploadsFolder = Path.Combine(_environment.ContentRootPath, "Uploads");
-
-        if (!Directory.Exists(uploadsFolder))
-            Directory.CreateDirectory(uploadsFolder);
-
-        var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
-
-        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        byte[] photoBytes;
+        using (var ms = new MemoryStream())
         {
-            await photo.CopyToAsync(fileStream);
+            await photo.CopyToAsync(ms);
+            photoBytes = ms.ToArray();
         }
 
-        person.PhotoUrl = Path.Combine("Uploads", uniqueFileName);
-        await _personRepository.UpdateAsync(person);
+        var command = new UploadPersonPhotoCommand(id, photoBytes, photo.FileName);
+        var photoPath = await _mediator.Send(command);
 
-        return Ok(new { PhotoPath = person.PhotoUrl });
+        return Ok(new { PhotoPath = photoPath });
     }
 }
