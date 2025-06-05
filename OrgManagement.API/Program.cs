@@ -28,6 +28,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 });
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
