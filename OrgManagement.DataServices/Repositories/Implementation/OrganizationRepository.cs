@@ -45,7 +45,6 @@ public class OrganizationRepository : IOrganizationRepository
 
     public async Task<IEnumerable<Organization>> GetOrganizationTreeAsync()
     {
-        // You might want to customize this for deep loading or use a DTO to project hierarchy properly.
         return await _context.Organizations
             .Include(o => o.SubOrganizations)
             .ToListAsync();
