@@ -19,16 +19,13 @@ public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, P
 
     public async Task<PersonDto> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
     {
-        // Map DTO to entity
         var personEntity = _mapper.Map<Person>(request.PersonCreateDto);
 
-        // Generate new ID if not already set
         if (personEntity.Id == Guid.Empty)
             personEntity.Id = Guid.NewGuid();
 
         await _personRepository.AddAsync(personEntity);
-
-        // Map back to PersonDto to return
+        
         var personDto = _mapper.Map<PersonDto>(personEntity);
 
         return personDto;
