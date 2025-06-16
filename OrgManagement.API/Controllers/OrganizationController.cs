@@ -52,6 +52,16 @@ public class OrganizationController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("GetAll")]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var query = new GetOrganizationsQuery();
+        
+        var result = await _mediator.Send(query);
+        
+        return Ok(result);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {

@@ -11,5 +11,6 @@ public class MappingProfiles : Profile
             .ForMember(dest => dest.SubOrganizations, opt => opt.MapFrom(src => src.SubOrganizations));
         CreateMap<Person, PersonDto>();
         CreateMap<Person, PersonCreateDto>().ReverseMap();
+        CreateMap<Organization, GetOrganizationsDto>();
     }
 }
