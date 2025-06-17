@@ -35,7 +35,6 @@ public class PersonCreateDto
     {
         var age = DateTime.Today.Year - birthDate.Year;
         if (birthDate > DateTime.Today.AddYears(-age)) age--;
-        return age >= 18 ? ValidationResult.Success : new ValidationResult("პიროვნების ასაკი უნდა იყოს 18 წლის მაინც.");
+        return age >= 18 ? ValidationResult.Success : new ValidationResult("პიროვნება უნდა იყოს 18 წლის");
     }
-    
 }

@@ -1,8 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using OrgManagement.DataServices.Data;
 using OrgManagement.Entities.Models;
 
@@ -11,6 +7,7 @@ namespace OrgManagement.DataServices.Repositories.Implementation;
 public class OrganizationRepository : IOrganizationRepository
 {
     private readonly AppDbContext _context;
+    private IOrganizationRepository _organizationRepositoryImplementation;
 
     public OrganizationRepository(AppDbContext context)
     {
@@ -23,14 +20,14 @@ public class OrganizationRepository : IOrganizationRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(Guid id)
+    public Task UpdateAsync(Organization organization)
     {
-        var org = await _context.Organizations.FindAsync(id);
-        if (org != null)
-        {
-            _context.Organizations.Remove(org);
-            await _context.SaveChangesAsync();
-        }
+        return _organizationRepositoryImplementation.UpdateAsync(organization);
+    }
+
+    public Task DeleteAsync(Guid id)
+    {
+        return _organizationRepositoryImplementation.DeleteAsync(id);
     }
 
     public async Task<IEnumerable<Organization>> GetAllAsync()
@@ -55,11 +52,5 @@ public class OrganizationRepository : IOrganizationRepository
         return await _context.Organizations
             .Where(o => o.ParentOrganizationId == null)
             .ToListAsync();
-    }
-
-    public async Task UpdateAsync(Organization organization)
-    {
-        _context.Organizations.Update(organization);
-        await _context.SaveChangesAsync();
     }
 }
